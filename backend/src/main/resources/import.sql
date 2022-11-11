@@ -23,6 +23,16 @@ INSERT INTO tb_sales(seller_name,visited,deals,amount,date) VALUES ('Marcelo Pai
 INSERT INTO tb_sales(seller_name,visited,deals,amount,date) VALUES ('Mauro dos Anjos',405,350,58000.0,'2022-05-06');
 INSERT INTO tb_sales(seller_name,visited,deals,amount,date) VALUES ('Maria Luiza',390,150,15980.0,'2022-05-06');
 INSERT INTO tb_sales(seller_name,visited,deals,amount,date) VALUES ('Eliene de Fatima',180,120,38000.0,'2022-05-06');
+INSERT INTO tb_sales(seller_name,visited,deals,amount,date) VALUES ('Emerson Carlos',250,189,21815.0,'2021-05-14');
+INSERT INTO tb_sales(seller_name,visited,deals,amount,date) VALUES ('Marcelo Paiva',315,200,45897.0,'2021-05-18');
+INSERT INTO tb_sales(seller_name,visited,deals,amount,date) VALUES ('Mauro dos Anjos',405,350,58000.0,'2021-05-20');
+INSERT INTO tb_sales(seller_name,visited,deals,amount,date) VALUES ('Maria Luiza',390,150,15980.0,'2021-05-08');
+INSERT INTO tb_sales(seller_name,visited,deals,amount,date) VALUES ('Eliene de Fatima',180,120,38000.0,'2021-05-09');
+INSERT INTO tb_sales(seller_name,visited,deals,amount,date) VALUES ('Emerson Carlos',250,189,21815.0,'2021-04-19');
+INSERT INTO tb_sales(seller_name,visited,deals,amount,date) VALUES ('Marcelo Paiva',315,200,45897.0,'2021-04-17');
+INSERT INTO tb_sales(seller_name,visited,deals,amount,date) VALUES ('Mauro dos Anjos',405,350,58000.0,'2021-04-30');
+INSERT INTO tb_sales(seller_name,visited,deals,amount,date) VALUES ('Maria Luiza',390,150,15980.0,'2021-04-01');
+INSERT INTO tb_sales(seller_name,visited,deals,amount,date) VALUES ('Eliene de Fatima',180,120,38000.0,'2021-04-05');
 
 
 
