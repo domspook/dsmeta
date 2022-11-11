@@ -2,23 +2,27 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Sale } from "../../models/sales";
+import { BASE_URL } from "../../utils/request";
 import NotificationButton from '../NotificationButton'
 import './styles.css'
 
 function SalesCard() {
 
-const min = new Date(new Date().setDate(new Date().getDate() - 365));
-const max = new Date();
+    const min = new Date(new Date().setDate(new Date().getDate() - 365));
+    const max = new Date();
 
 
-const [minDate, setMinDate] = useState(min);
-const [maxDate, setMaxDate] = useState(max);
+    const [minDate, setMinDate] = useState(min);
+    const [maxDate, setMaxDate] = useState(max);
 
-useEffect(() => {
-    axios.get("http://localhost:8081/sales").then(response => {
-        console.log(response.data);
-    })
-}, []);
+    const [sales, setSales] = useState<Sale[]>([]);
+
+    useEffect(() => {
+        axios.get(`${BASE_URL}/sales`).then(response => {
+            setSales(response.data.content);
+        })
+    }, []);
 
     return (
         <div className="dsmeta-card">
@@ -58,73 +62,24 @@ useEffect(() => {
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <th className="show992">#001</th>
-                            <th className="show576">12/10/2022</th>
-                            <th>Marcelo</th>
-                            <th className="show992">25</th>
-                            <th className="show992">15</th>
-                            <th>R$ 52.000,00</th>
-                            <th>
-                                <div className="dsmeta-red-btn-container">
-                                    <NotificationButton />
-                                </div>
-                            </th>
-                        </tr>
-                        <tr>
-                            <th className="show992">#002</th>
-                            <th className="show576">12/10/2022</th>
-                            <th>Mauro</th>
-                            <th className="show992">80</th>
-                            <th className="show992">38</th>
-                            <th>R$ 89.000,00</th>
-                            <th>
-                                <div className="dsmeta-red-btn-container">
-                                    <NotificationButton />
-                                </div>
+                        {sales.map(sale => {
+                            return (
+                                <tr key={sale.id}>
+                                    <th className="show992">{sale.id}</th>
+                                    <th className="show576">{new Date(sale.date).toLocaleDateString()}</th>
+                                    <th>{sale.sellerName}</th>
+                                    <th className="show992">{sale.visited}</th>
+                                    <th className="show992">{sale.deals}</th>
+                                    <th>R$ {sale.amount.toFixed(2)}</th>
+                                    <th>
+                                        <div className="dsmeta-red-btn-container">
+                                            <NotificationButton />
+                                        </div>
+                                    </th>
+                                </tr>
+                            )
+                        })}
 
-                            </th>
-                        </tr>
-                        <tr>
-                            <th className="show992">#003</th>
-                            <th className="show576">12/10/2022</th>
-                            <th>Eliene</th>
-                            <th className="show992">72</th>
-                            <th className="show992">50</th>
-                            <th>R$ 78.000,00</th>
-                            <th>
-                                <div className="dsmeta-red-btn-container">
-                                    <NotificationButton />
-                                </div>
-
-                            </th>
-                        </tr>
-                        <tr>
-                            <th className="show992">#004</th>
-                            <th className="show576">12/10/2022</th>
-                            <th>Luiza</th>
-                            <th className="show992">110</th>
-                            <th className="show992">95</th>
-                            <th>R$ 150.000,00</th>
-                            <th>
-                                <div className="dsmeta-red-btn-container">
-                                    <NotificationButton />
-                                </div>
-                            </th>
-                        </tr>
-                        <tr>
-                            <th className="show992">#005</th>
-                            <th className="show576">12/10/2022</th>
-                            <th>José</th>
-                            <th className="show992">65</th>
-                            <th className="show992">47</th>
-                            <th>R$ 63.000,00</th>
-                            <th>
-                                <div className="dsmeta-red-btn-container">
-                                    <NotificationButton />
-                                </div>
-                            </th>
-                        </tr>
                     </tbody>
                 </table>
             </div>
