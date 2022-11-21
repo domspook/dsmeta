@@ -12,7 +12,8 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-
+//Configuração Spring
+// Configuração de Segurança / Acesso (CORS - Cross-origin resource sharing) - Liberação de Acesso via Requisições através de Protocolo http
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {

@@ -9,11 +9,14 @@ import './styles.css'
 
 function SalesCard() {
 
+    //min = pega a data atual menos 365 dias (ano)
+    //max = pega a data atual
     const min = new Date(new Date().setDate(new Date().getDate() - 365));
     const max = new Date();
 
-
-    const [minDate, setMinDate] = useState(min);
+    //React Hook UseState    
+    //Guardar o estado do componente React selecionado e mostrar na tela (Novas Datas)
+    const [minDate, setMinDate] = useState(min); 
     const [maxDate, setMaxDate] = useState(max);
 
     const [sales, setSales] = useState<Sale[]>([]);
@@ -35,7 +38,7 @@ function SalesCard() {
             <h2 className="dsmeta-sales-title">Vendas</h2>
             <div>
                 <div className="dsmeta-form-control-container">
-                    <DatePicker
+                    <DatePicker  //Componente externo (Calendário)
                         selected={minDate}
                         onChange={(date: Date) => setMinDate(date)}
                         className="dsmeta-form-control"
@@ -43,7 +46,7 @@ function SalesCard() {
                     />
                 </div>
                 <div className="dsmeta-form-control-container">
-                    <DatePicker
+                    <DatePicker //Componente externo (Calendário)
                         selected={maxDate}
                         onChange={(date: Date) => setMaxDate(date)}
                         className="dsmeta-form-control"

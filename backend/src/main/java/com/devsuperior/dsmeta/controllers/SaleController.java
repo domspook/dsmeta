@@ -8,9 +8,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
+// API "REST"
+//Componente responsável por implementar os endpoints (caminhos) que o Frontend vai precisar para acessar o Backend
 
 @RestController
-@RequestMapping(value = "/sales")
+@RequestMapping(value = "/sales") //Endereço de acesso web
 public class SaleController {
 
     @Autowired
@@ -19,7 +21,7 @@ public class SaleController {
     @Autowired
     private SmsService  smsService;
 
-    @GetMapping
+    @GetMapping //Acessa a interface "SaleRepository" para buscar as informações
     public Page<Sale> findSales(
             @RequestParam(value="minDate", defaultValue = "") String minDate,
             @RequestParam(value = "maxDate", defaultValue = "") String maxDate,

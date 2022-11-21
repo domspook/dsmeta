@@ -2,14 +2,14 @@ package com.devsuperior.dsmeta.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 
 
-@Entity
+// Regras de Negócio
+@Entity //(Mapeamento Objeto Relacional - ORM / JPA) -
 @Table(name = "tb_sales")
 public class Sale {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id //(Receberá valores únicos)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //(Valores serão gerados de forma automática)
     private Long id;
     private String sellerName;
     private Integer visited;
@@ -17,11 +17,12 @@ public class Sale {
     private Double amount;
     private LocalDate date;
 
+    //Construtor
     public Sale(){
 
     }
 
-
+    //Métodos de Acesso (Getings e Setings / Encapsulamento)
     public Long getId() {
         return id;
     }

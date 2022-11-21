@@ -26,14 +26,15 @@ public class SmsService  {
     @Autowired
     private SaleRepository saleRepository;
         public void sendSms(Long saleId) {
-
+            // Armazena as informações da Sale em "sale"
             Sale sale = saleRepository.findById(saleId).get();
-
+            //Armazena as informações da data em "date"
             String date = sale.getDate().getDayOfMonth() + "/" + sale.getDate().getMonthValue() + "/" + sale.getDate().getYear();
-
+            //Armazena a mensagem que será enviada em "msg"
             String msg = "O(a) Vendedor(a) " + sale.getSellerName() + " foi destaque em " + date
                     + " com um total de R$ " + String.format("%.2f", sale.getAmount()) + " em vendas! PARABÉNS pelo seu desempenho ;)";
 
+            //Configurações da Twillio
             Twilio.init(twilioSid, twilioKey);
 
             PhoneNumber to = new PhoneNumber(twilioPhoneTo);

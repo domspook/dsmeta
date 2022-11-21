@@ -8,9 +8,11 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.time.LocalDate;
 
+//Componente responsável por acessor o banco de dados
+//Crinção de Interface extendendo o JpaRepository <Classe, tipo do "ID">
 public interface SaleRepository extends JpaRepository<Sale, Long> {
-
-    @Query("SELECT obj FROM Sale obj WHERE obj.date BETWEEN :min AND :max ORDER BY obj.amount DESC")
-    Page<Sale> findSales(LocalDate min, LocalDate max, Pageable pageable);
+    //Busca todos os objetos do tipo Sale onde a data do objeto esteja entre as datas minimas e maximas e ordena por valor do montante "decrescente"
+    @Query("SELECT obj FROM Sale obj WHERE obj.date BETWEEN :min AND :max ORDER BY obj.amount DESC") // Linguagem "JPQL"
+    Page<Sale> findSales(LocalDate min, LocalDate max, Pageable pageable); //Amostragem de dados paginadas padrão 20
 
 }
