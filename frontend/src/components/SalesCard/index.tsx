@@ -72,7 +72,7 @@ function SalesCard() {
                     <tbody>
                         {sales.map(sale => {
                             return (
-                                <tr key={sale.id}>
+                                <tr key={sale.id}> 
                                     <th className="show992">{sale.id}</th>
                                     <th className="show576">{new Date(sale.date).toLocaleDateString()}</th>
                                     <th>{sale.sellerName}</th>
